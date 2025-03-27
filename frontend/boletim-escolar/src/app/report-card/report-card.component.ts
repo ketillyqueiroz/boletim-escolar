@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-report-card',
@@ -8,6 +8,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './report-card.component.scss'
 })
 export class ReportCardComponent {
+  inputValue: number | null = null;
+  errorMessage: string = '';
 
   subjects: { name: string, id: number }[] = [
     {
@@ -55,4 +57,25 @@ export class ReportCardComponent {
       name: "ED. FÍSICA"
     },
   ];
+ 
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  limitInputLength(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    let value = input.value.replace(/[^0-9]/g, '');
+    input.value = input.value.slice(0, 4);
+    this.inputValue = input.value ? parseInt(value, 10) : null;
+    this.validateInput();
+  };
+
+  validateInput(): void {
+    if (!this.inputValue) {
+      this.errorMessage = '';
+    } else if (this.inputValue.toString().length < 4) {
+      this.errorMessage = 'O ano deve conter 4 dígitos.';
+    } else {
+      this.errorMessage = '';
+    }
+    this.cdr.detectChanges();
+  }
 }

@@ -3,14 +3,14 @@
   <div class="card-body">
     <div class="d-flex flex-column align-items-start">
       <div class="row w-100 mb-2">
-        <div class="col-8">
+        <div class="col-md-8">
           <div class="input-group">
             <span class="input-group-text">ALUNO(A)</span>
             <input type="text" aria-label="First name" class="form-control" />
           </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-md-4">
           <div class="input-group">
             <span class="input-group-text">Nº</span>
             <input type="text" class="form-control" />
@@ -38,8 +38,11 @@
           min="2000"
           max="2099"
           step="1"
+          (input)="limitInputLength($event)"
+          (keydown)="limitInputLength($event)"
         />
       </div>
+      <p class="text-danger" *ngIf="errorMessage">{{ errorMessage }}</p>
     </div>
     <table class="table table-bordered border">
       <h5>DISCIPLINAS</h5>
