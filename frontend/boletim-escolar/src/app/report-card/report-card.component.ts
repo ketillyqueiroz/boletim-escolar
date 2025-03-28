@@ -5,59 +5,69 @@ import { ChangeDetectorRef, Component, Input } from '@angular/core';
   selector: 'app-report-card',
   imports: [CommonModule],
   templateUrl: './report-card.component.html',
-  styleUrl: './report-card.component.scss'
+  styleUrl: './report-card.component.scss',
 })
 export class ReportCardComponent {
   inputValue: number | null = null;
+  inputText: string = '';
   errorMessage: string = '';
 
-  subjects: { name: string, id: number }[] = [
+  subjects: { name: string; id: number }[] = [
     {
       id: 0,
-      name: 'PORTUGUÊS'
+      name: 'PORTUGUÊS',
     },
     {
       id: 1,
-      name: 'PRODUÇÃO'
+      name: 'PRODUÇÃO',
     },
     {
       id: 2,
-      name: 'INGLÊS'
+      name: 'INGLÊS',
     },
     {
       id: 3,
-      name: "ESPANHOL"
+      name: 'ESPANHOL',
     },
     {
       id: 4,
-      name: "ARTES"
+      name: 'ARTES',
     },
     {
       id: 5,
-      name: "HISTÓRIA"
+      name: 'HISTÓRIA',
     },
     {
       id: 6,
-      name: "GEOGRAFIA"
+      name: 'GEOGRAFIA',
     },
     {
       id: 7,
-      name: "FILOSOFIA"
+      name: 'FILOSOFIA',
     },
     {
       id: 8,
-      name: "MATEMÁTICA"
+      name: 'MATEMÁTICA',
     },
     {
       id: 9,
-      name: "CIÊNCIAS"
+      name: 'CIÊNCIAS',
     },
     {
       id: 10,
-      name: "ED. FÍSICA"
+      name: 'ED. FÍSICA',
     },
   ];
- 
+
+  limitInputText(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    let text = input.value.replace(/[^a-zA-Z\u00C0-\u00FF\s]/g, '');
+    text = text.slice(0, 40);
+    input.value = text;
+    this.inputText = text;
+    this.inputText = text.trim();
+  }
+
   constructor(private cdr: ChangeDetectorRef) {}
 
   limitInputLength(event: Event): void {
