@@ -1,4 +1,4 @@
-<div class="card d-flex mt-5 m-auto border-2 rounded-0">
+<div class="card d-flex mt-5 mb-5 m-auto border-2 rounded-0">
   <h5 class="card-header">Boletim Individual do Aluno(a)</h5>
   <div class="card-body">
     <div class="d-flex flex-column align-items-start">
@@ -13,7 +13,6 @@
               (input)="limitInputText($event)"
             />
           </div>
-          <p class="text-danger" *ngIf="errorMessage">{{ errorMessage }}</p>
         </div>
 
         <div class="col-md-4">
@@ -50,8 +49,8 @@
       </div>
       <p class="text-danger" *ngIf="errorMessage">{{ errorMessage }}</p>
     </div>
+    <h5>DISCIPLINAS</h5>
     <table class="table table-bordered border">
-      <h5>DISCIPLINAS</h5>
       <thead>
         <tr>
           <th scope="col">BIMESTRE</th>
@@ -65,13 +64,62 @@
       <tbody>
         <tr *ngFor="let subject of subjects">
           <th scope="row">{{ subject.name }}</th>
-          <th scope="row"><input type="number" /></th>
-          <!-- validar se o valor é maior ou igual a 0 e menor ou igual a 10 -->
-          <th scope="row"><input type="number" /></th>
-          <th scope="row"><input type="number" /></th>
-          <th scope="row"><input type="number" /></th>
+          <td>
+            <input
+              type="number"
+              [(ngModel)]="subject.n1"
+              min="0"
+              max="10"
+              class="form-control"
+              (input)="limitInputMedia($event)"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              [(ngModel)]="subject.n2"
+              min="0"
+              max="10"
+              class="form-control"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              [(ngModel)]="subject.n3"
+              min="0"
+              max="10"
+              class="form-control"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              [(ngModel)]="subject.n4"
+              min="0"
+              max="10"
+              class="form-control"
+            />
+          </td>
+          <td>
+            <strong>{{
+              subject.synthesis !== undefined
+                ? subject.synthesis.toFixed(2)
+                : "0.00"
+            }}</strong>
+          </td>
         </tr>
       </tbody>
     </table>
+    <div class="mb-2">
+      <button type="button" class="btn btn-primary" (click)="calculateAll()">
+        Calcular
+      </button>
+    </div>
   </div>
 </div>
+
+<!-- <div class="d-flex justify-content-center mt-3">
+  <button type="button" class="btn btn-primary" (click)="printReportCard()">
+    Imprimir Boletim
+  </button> -->
