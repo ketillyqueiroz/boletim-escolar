@@ -22,3 +22,6 @@ Sistema para cadastro de alunos e geração de boletins escolares em **PDF/JPG**
 📊 Dashboard com estatísticas
 
 ## 📦 **Como Rodar o Projeto**
+
+# Autores
+| [<img src="https://avatars.githubusercontent.com/u/126476809?v=4" width=115><br><sub>Leonardo Sá</sub>](https://github.com/Sa-Leonardo)
