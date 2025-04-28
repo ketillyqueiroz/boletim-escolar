@@ -24,6 +24,5 @@ Sistema para cadastro de alunos e geração de boletins escolares em **PDF/JPG**
 ## 📦 **Como Rodar o Projeto**
 
 # Autores
-
-[<img src="https://avatars.githubusercontent.com/u/104574901?v=4" width="60"><br><sub>Ketilly Queiroz</sub>](https://github.com/ketillyqueiroz) |
-[<img src="https://avatars.githubusercontent.com/u/126476809?v=4" width="60"><br><sub>Leonardo Sá</sub>](https://github.com/Sa-Leonardo)
+| [<img src="https://avatars.githubusercontent.com/u/104574901?v=4" width=100><br><sub>Ketilly Queiroz</sub>](https://github.com/ketillyqueiroz)  |  [<img src="https://avatars.githubusercontent.com/u/126476809?v=4" width=100><br><sub>Leonardo Sá</sub>](https://github.com/Sa-Leonardo) | 
+| :---: | :---: | 
