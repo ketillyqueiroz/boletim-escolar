@@ -1,25 +1,30 @@
-<div class="card d-flex mt-5 m-auto border-2 rounded-0">
+<div class="card d-flex mt-5 mb-5 m-auto border-2 rounded-0">
   <h5 class="card-header">Boletim Individual do Aluno(a)</h5>
   <div class="card-body">
     <div class="d-flex flex-column align-items-start">
       <div class="row w-100 mb-2">
-        <div class="col-8">
+        <div class="col-md-8">
           <div class="input-group">
-            <span class="input-group-text">ALUNO(A)</span>
-            <input type="text" aria-label="First name" class="form-control" />
+            <span class="input-group-text rounded-0">ALUNO(A)</span>
+            <input
+              type="text"
+              aria-label="First name"
+              class="form-control rounded-0"
+              (input)="limitInputText($event)"
+            />
           </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-md-4">
           <div class="input-group">
-            <span class="input-group-text">Nº</span>
-            <input type="text" class="form-control" />
+            <span class="input-group-text rounded-0">Nº</span>
+            <input type="text" class="form-control rounded-0" />
           </div>
         </div>
       </div>
       <div class="input-group mb-2 w-auto">
-        <span class="input-group-text">SÉRIE</span>
-        <select class="form-select">
+        <span class="input-group-text rounded-0">SÉRIE</span>
+        <select class="form-select rounded-0">
           <option selected></option>
           <option value="1">6º ANO</option>
           <option value="2">7º ANO</option>
@@ -31,18 +36,21 @@
         </select>
       </div>
       <div class="input-group w-auto">
-        <span class="input-group-text">ANO</span>
+        <span class="input-group-text rounded-0">ANO</span>
         <input
           type="number"
-          class="form-control"
-          min="2000"
+          class="form-control rounded-0"
+          min="2022"
           max="2099"
           step="1"
+          (input)="limitInputLength($event)"
+          (keydown)="limitInputLength($event)"
         />
       </div>
+      <p class="text-danger" *ngIf="errorMessage">{{ errorMessage }}</p>
     </div>
+    <h5>DISCIPLINAS</h5>
     <table class="table table-bordered border">
-      <h5>DISCIPLINAS</h5>
       <thead>
         <tr>
           <th scope="col">BIMESTRE</th>
@@ -56,12 +64,61 @@
       <tbody>
         <tr *ngFor="let subject of subjects">
           <th scope="row">{{ subject.name }}</th>
-          <th scope="row"><input type="number" /></th>
-          <th scope="row"><input type="number" /></th>
-          <th scope="row"><input type="number" /></th>
-          <th scope="row"><input type="number" /></th>
+          <td>
+            <input
+              type="number"
+              [(ngModel)]="subject.n1"
+              min="0"
+              max="10"
+              class="form-control"
+              (input)="limitInputMedia($event)"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              [(ngModel)]="subject.n2"
+              min="0"
+              max="10"
+              class="form-control"
+              (input)="limitInputMedia($event)"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              [(ngModel)]="subject.n3"
+              min="0"
+              max="10"
+              class="form-control"
+              (input)="limitInputMedia($event)"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              [(ngModel)]="subject.n4"
+              min="0"
+              max="10"
+              class="form-control"
+              (input)="limitInputMedia($event)"
+            />
+          </td>
+          <td>
+            <strong>{{
+              subject.synthesis !== undefined
+                ? subject.synthesis.toFixed(1)
+                : "0.00"
+            }}</strong>
+          </td>
         </tr>
       </tbody>
     </table>
+    <div class="mb-2">
+      <button type="button" class="btn btn-primary" (click)="calculateAll()">
+        Calcular
+      </button>
+    </div>
   </div>
 </div>
+
