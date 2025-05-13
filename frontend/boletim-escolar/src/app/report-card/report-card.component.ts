@@ -174,9 +174,15 @@ export class ReportCardComponent {
 
   limitInputMedia(event: Event): void {
     const input = event.target as HTMLInputElement;
-    let value = input.value.replace(/[^0-9]/g, '');
-    input.value = input.value.slice(0, 10);
-    this.synthesis = input.value ? parseFloat(value) : 0;
+    let value = input.value.replace(',', '.').replace(/[^0-9.]/g, '');
+    if (value.length > 10) {
+      value = value.slice(0, 10);
+    }
+    const regex = /^(10(\.0+)?|[0-9](\.\d+)?)$/;
+    this.synthesis = regex.test(value) ? parseFloat(value) : 0;
+    if (regex.test(value)) {
+      input.value = value;
+    }
   }
 
   addValue(subject: any): void {

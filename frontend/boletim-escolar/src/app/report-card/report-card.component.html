@@ -81,6 +81,7 @@
               min="0"
               max="10"
               class="form-control"
+              (input)="limitInputMedia($event)"
             />
           </td>
           <td>
@@ -90,6 +91,7 @@
               min="0"
               max="10"
               class="form-control"
+              (input)="limitInputMedia($event)"
             />
           </td>
           <td>
@@ -99,12 +101,13 @@
               min="0"
               max="10"
               class="form-control"
+              (input)="limitInputMedia($event)"
             />
           </td>
           <td>
             <strong>{{
               subject.synthesis !== undefined
-                ? subject.synthesis.toFixed(2)
+                ? subject.synthesis.toFixed(1)
                 : "0.00"
             }}</strong>
           </td>
@@ -119,7 +122,3 @@
   </div>
 </div>
 
-<!-- <div class="d-flex justify-content-center mt-3">
-  <button type="button" class="btn btn-primary" (click)="printReportCard()">
-    Imprimir Boletim
-  </button> -->
