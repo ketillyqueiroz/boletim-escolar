@@ -108,6 +108,7 @@
       }
     }
   },
+<<<<<<< Updated upstream
   "schematics": {
     "@schematics/angular:component": {
       "type": "component"
@@ -136,5 +137,9 @@
   },
   "cli": {
     "analytics": "f8042600-f24d-4bec-a798-b2bbe3fee19f"
+=======
+  "cli": {
+    "analytics": "529256f0-a86f-4bff-ba5e-c76fd7fa2cf4"
+>>>>>>> Stashed changes
   }
 }
