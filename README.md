@@ -15,6 +15,7 @@ Sistema para cadastro de alunos e geração de boletins escolares em **PDF/JPG**
 ✔️ Consumo de API REST
 
 ✨ **Melhorias Futuras:**
+
 📌 Lista de alunos e frequência
 
 🔐 Autenticação de usuários
