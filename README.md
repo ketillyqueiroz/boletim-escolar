@@ -4,8 +4,8 @@ Sistema para cadastro de alunos e geração de boletins escolares em **PDF/JPG**
 
 ## 🚀 **Tecnologias**
 - **Frontend:** Angular + Bootstrap
-- **Backend:** Go
-- **Banco de Dados:** PostgreSQL
+- **Backend:** a definir
+- **Banco de Dados:** MySql
 - **Deploy:** 
 
 ## 🛠️ **Funcionalidades**
