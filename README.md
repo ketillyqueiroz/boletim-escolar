@@ -4,8 +4,8 @@ Sistema para cadastro de alunos e geração de boletins escolares em **PDF/JPG**
 
 ## 🚀 **Tecnologias**
 - **Frontend:** Angular + Bootstrap
-- **Backend:** Go
-- **Banco de Dados:** PostgreSQL
+- **Backend:** a definir
+- **Banco de Dados:** MySql
 - **Deploy:** 
 
 ## 🛠️ **Funcionalidades**
@@ -15,6 +15,7 @@ Sistema para cadastro de alunos e geração de boletins escolares em **PDF/JPG**
 ✔️ Consumo de API REST
 
 ✨ **Melhorias Futuras:**
+
 📌 Lista de alunos e frequência
 
 🔐 Autenticação de usuários
@@ -22,3 +23,6 @@ Sistema para cadastro de alunos e geração de boletins escolares em **PDF/JPG**
 📊 Dashboard com estatísticas
 
 ## 📦 **Como Rodar o Projeto**
+
+# Autores
+| [<img src="https://avatars.githubusercontent.com/u/104574901?v=4" width=100><br><sub>Ketilly Queiroz</sub>](https://github.com/ketillyqueiroz)  |  
